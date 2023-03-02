@@ -28,23 +28,23 @@ jobs:
   Routine_Check_for_Commit:
     runs-on: ubuntu-latest
     container: ${{ inputs.container }}
-      steps:
-        - run: echo "Running test in DSPWorkflow container"
-        
-        - uses: actions/checkout@v3
-          with:
-             token: ${{ inputs.githubtoken }}
-             ref: ${{ inputs.githubbranch }}
-             fetch-depth: 0
-        
-        id: extract_branch
-        - name: Test test
-          run: |
-            echo "${inputs.container}"
-            echo "${inputs.githubbranch}"
-    
-        - name: Check spelling
-          if: ${{ inputs.action == 'test' }}
-          run: |
-            echo "run test"
-            echo "${inputs.saysomthing}"
+    steps:
+      - run: echo "Running test in DSPWorkflow container"
+      
+      - uses: actions/checkout@v3
+        with:
+           token: ${{ inputs.githubtoken }}
+           ref: ${{ inputs.githubbranch }}
+           fetch-depth: 0
+      
+      id: extract_branch
+      - name: Test test
+        run: |
+          echo "${inputs.container}"
+          echo "${inputs.githubbranch}"
+  
+      - name: Check spelling
+        if: ${{ inputs.action == 'test' }}
+        run: |
+          echo "run test"
+          echo "${inputs.saysomthing}"
