@@ -21,14 +21,11 @@ runs:
   container: "${ inputs.container }"
   steps:
     - name: Test test
-      image: 'ubuntu:latest'
       run: |
         echo "${secrets.GITHUB_TOKEN}"
         echo "${inputs.container}"
-      shell: bash
 
     - name: Check spelling
       run: |
         echo "run test"
         echo "${inputs.saysomthing}"
-      shell: bash
