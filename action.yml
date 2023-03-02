@@ -1,0 +1,26 @@
+name: 'check-action-info'
+author: 'Data Management and Analysis Program at the National Cancer Institute'
+description: 'See how things are passed'
+inputs:
+  image:  
+    description: 'The link to the docker image to use.'
+    default: 'r-base/latest'
+  action:
+    description: 'What action to run? ["test", post-merge", "unit-test-on-changed", "all-unit-tests", "check"]'
+    default: 'test'
+  saysomthing:
+    deccription: 'Customed information for testing'
+    default: 'Test test'
+runs:
+  using: composite
+  image: ${{inputs.image}}
+  steps:
+    - name: Optionally install the spelling package
+      run: |
+        echo "${secrets.GITHUB_TOKEN}""
+
+    - name: Check spelling
+      if: ${{ inputs.action == 'test' }}
+      run: |
+        echo "run test"
+        echo "${inputs.saysomthing}"
