@@ -2,7 +2,7 @@ name: 'check-action-info'
 author: 'Data Management and Analysis Program at the National Cancer Institute'
 description: 'See how things are passed'
 inputs:
-  image:  
+  image_num:  
     description: 'The link to the docker image to use.'
     required: false
     default: 'r-base/latest'
@@ -16,7 +16,7 @@ inputs:
     default: 'Test test'
 runs:
   using: "docker"
-  image: "${{ inputs.image }}"
+  image: "${{ inputs.image_num }}"
   steps:
     - name: Test test
       run: |
