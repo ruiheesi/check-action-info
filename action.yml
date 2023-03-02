@@ -13,7 +13,7 @@ inputs:
     default: 'Test test'
 runs:
   using: composite
-  image: ${{inputs.image}}
+  image: ${{ inputs.image }}
   steps:
     - name: Optionally install the spelling package
       run: |
