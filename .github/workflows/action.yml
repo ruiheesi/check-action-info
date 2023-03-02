@@ -34,22 +34,22 @@ jobs:
       
       - name: Test test
         run: |
-          echo "${inputs.container}"
-          echo "${inputs.githubbranch}"
+          echo "${{ inputs.container }}"
+          echo "${{ inputs.githubbranch }}"
       
       - uses: actions/checkout@v3
         with:
-           token: "${inputs.githubtoken}"
-           ref: "${inputs.githubbranch}"
+           token: "${{ inputs.githubtoken }}"
+           ref: "${{ inputs.githubbranch }}"
            fetch-depth: 0
        
       - name: input action
         shell: bash
         run: |
-          echo "##[set-output name=action;]$(echo ${inputs.action})"
+          echo "##[set-output name=action;]$(echo ${{ inputs.action }})"
         id: extract_action
   
       - name: Check spelling
         run: |
           echo "run test"
-          echo "${inputs.saysomthing}"
+          echo "${{ inputs.saysomthing }}"
