@@ -37,10 +37,10 @@ jobs:
         id: extract_branch
         - name: Test test
           run: |
-            echo "${secrets.GITHUB_TOKEN}"
             echo "${inputs.container}"
     
         - name: Check spelling
+          if: ${{ inputs.action == 'test' }}
           run: |
             echo "run test"
             echo "${inputs.saysomthing}"
