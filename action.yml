@@ -1,6 +1,7 @@
-name: 'check-action-info'
-author: 'Data Management and Analysis Program at the National Cancer Institute'
-description: 'See how things are passed'
+name: check-action-info
+author: Data Management and Analysis Program at the National Cancer Institute
+description: See how things are passed
+
 inputs:
   container:  
     description: 'The link to the docker image to use.'
@@ -14,6 +15,7 @@ inputs:
     deccription: 'Customed information for testing'
     required: false
     default: 'Test test'
+    
 runs:
   using: "docker"
   image: "${{ inputs.container }}"
