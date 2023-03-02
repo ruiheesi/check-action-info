@@ -18,7 +18,10 @@ on:
         required: false
         default: 'Test test'
       githubtoken:
-        deccription: 'Customed information for testing'
+        deccription: 'githubtoken'
+        required: true
+      githubbranch:
+        deccription: 'githubbranch'
         required: true
     
 jobs:
@@ -28,16 +31,11 @@ jobs:
       steps:
         - run: echo "Running test in DSPWorkflow container"
         
-        - name: Extract branch name
-          shell: bash
-          run: |
-            echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-            echo "Push time: ${{ github.event.head_commit.timestamp }}"
-            
         id: extract_branch
         - name: Test test
           run: |
             echo "${inputs.container}"
+            echo "${inputs.githubbranch}"
     
         - name: Check spelling
           if: ${{ inputs.action == 'test' }}
