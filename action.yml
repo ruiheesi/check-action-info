@@ -17,7 +17,8 @@ inputs:
     default: 'Test test'
     
 runs:
-  using: "composite"
+  using: "docker"
+  container: "${ inputs.container }"
   steps:
     - name: Test test
       image: 'ubuntu:latest'
