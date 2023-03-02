@@ -2,30 +2,33 @@ name: check-action-info
 author: Data Management and Analysis Program at the National Cancer Institute
 description: See how things are passed
 
-inputs:
-  container:  # id of input
-    description: 'The link to the docker image to use.'
-    required: false
-    default: 'ubuntu:latest'
-  action:
-    description: 'What action to run? ["test", post-merge", "unit-test-on-changed", "all-unit-tests", "check"]'
-    required: false
-    default: 'test'
-  saysomthing:
-    deccription: 'Customed information for testing'
-    required: false
-    default: 'Test test'
+on:
+  workflow_call:
+    inputs:
+      container:  # id of input
+        description: 'The link to the docker image to use.'
+        required: false
+        default: 'ubuntu:latest'
+      action:
+        description: 'What action to run? ["test", post-merge", "unit-test-on-changed", "all-unit-tests", "check"]'
+        required: false
+        default: 'test'
+      saysomthing:
+        deccription: 'Customed information for testing'
+        required: false
+        default: 'Test test'
     
-runs:
-  using: "docker"
-  container: "${ inputs.container }"
-  steps:
-    - name: Test test
-      run: |
-        echo "${secrets.GITHUB_TOKEN}"
-        echo "${inputs.container}"
-
-    - name: Check spelling
-      run: |
-        echo "run test"
-        echo "${inputs.saysomthing}"
+jobs:
+  Routine_Check_for_Commit:
+    runs-on: ubuntu-latest
+    container: ${{ inputs.container }}
+      steps:
+        - name: Test test
+          run: |
+            echo "${secrets.GITHUB_TOKEN}"
+            echo "${inputs.container}"
+    
+        - name: Check spelling
+          run: |
+            echo "run test"
+            echo "${inputs.saysomthing}"
