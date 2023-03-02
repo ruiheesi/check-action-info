@@ -4,26 +4,25 @@ on:
   workflow_call:
     inputs:
       container:
-        description: 'The link to the docker image to use.'
         required: false
         default: 'ubuntu:latest'
         type: string
+        
       action:
-        description: 'What action to run? ["test", post-merge", "unit-test-on-changed", "all-unit-tests", "check"]'
         required: false
         default: 'test'
         type: string
+        
       saysomthing:
-        deccription: 'Customed information for testing'
         required: false
         default: 'Test test'
         type: string
+        
       githubtoken:
-        deccription: 'githubtoken'
         required: true
         type: string
+        
       githubbranch:
-        deccription: 'githubbranch'
         required: true
         type: string
     
