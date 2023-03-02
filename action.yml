@@ -3,7 +3,7 @@ author: Data Management and Analysis Program at the National Cancer Institute
 description: See how things are passed
 
 inputs:
-  container:  
+  container:  # id of input
     description: 'The link to the docker image to use.'
     required: false
     default: 'r-base/latest'
