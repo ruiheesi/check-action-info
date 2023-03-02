@@ -40,9 +40,15 @@ jobs:
            token: "${inputs.githubtoken}"
            ref: "${inputs.githubbranch}"
            fetch-depth: 0
+       
+      - name: input action
+        shell: bash
+        run: |
+          echo "##[set-output name=action;]$(echo ${inputs.action})"
+        id: extract_action
   
       - name: Check spelling
-        if: ${{ inputs.action == 'test' }}
+        if:  ${{ steps.extract_action.outputs.action == 'test' }}
         run: |
           echo "run test"
           echo "${inputs.saysomthing}"
