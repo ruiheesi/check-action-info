@@ -12,14 +12,16 @@ inputs:
     deccription: 'Customed information for testing'
     default: 'Test test'
 runs:
-  using: composite
-  image: ${{ inputs.image }}
+  using: "composite"
   steps:
-    - name: Optionally install the spelling package
+    - name: Test test
+      runs-on: ubuntu-latest
+      image: ${{inputs.image}}
       run: |
         echo "${secrets.GITHUB_TOKEN}""
 
     - name: Check spelling
+      runs-on: ubuntu-latest
       if: ${{ inputs.action == 'test' }}
       run: |
         echo "run test"
