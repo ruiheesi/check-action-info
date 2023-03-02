@@ -1,6 +1,4 @@
 name: check-action-info
-author: Data Management and Analysis Program at the National Cancer Institute
-description: See how things are passed
 
 on:
   workflow_call:
