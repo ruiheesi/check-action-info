@@ -17,12 +17,24 @@ on:
         deccription: 'Customed information for testing'
         required: false
         default: 'Test test'
+      githubtoken:
+        deccription: 'Customed information for testing'
+        required: true
     
 jobs:
   Routine_Check_for_Commit:
     runs-on: ubuntu-latest
     container: ${{ inputs.container }}
       steps:
+        - run: echo "Running test in DSPWorkflow container"
+        
+        - name: Extract branch name
+          shell: bash
+          run: |
+            echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+            echo "Push time: ${{ github.event.head_commit.timestamp }}"
+            
+        id: extract_branch
         - name: Test test
           run: |
             echo "${secrets.GITHUB_TOKEN}"
