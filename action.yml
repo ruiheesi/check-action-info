@@ -6,7 +6,7 @@ inputs:
   container:  # id of input
     description: 'The link to the docker image to use.'
     required: false
-    default: 'r-base/latest'
+    default: 'ubuntu:latest'
   action:
     description: 'What action to run? ["test", post-merge", "unit-test-on-changed", "all-unit-tests", "check"]'
     required: false
@@ -18,11 +18,12 @@ inputs:
     
 runs:
   using: "docker"
-  image: "${{ inputs.container }}"
+  image: "ubuntu:latest"
   steps:
     - name: Test test
       run: |
-        echo "${secrets.GITHUB_TOKEN}""
+        echo "${secrets.GITHUB_TOKEN}"
+        echo "${inputs.container}"
 
     - name: Check spelling
       run: |
