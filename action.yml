@@ -17,15 +17,17 @@ inputs:
     default: 'Test test'
     
 runs:
-  using: "docker"
+  using: "composite"
   image: "ubuntu:latest"
   steps:
     - name: Test test
       run: |
         echo "${secrets.GITHUB_TOKEN}"
         echo "${inputs.container}"
+      shell: bash
 
     - name: Check spelling
       run: |
         echo "run test"
         echo "${inputs.saysomthing}"
+      shell: bash
