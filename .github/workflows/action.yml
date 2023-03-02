@@ -32,7 +32,6 @@ jobs:
         run: |
           echo "${{ inputs.container }}"
           echo "${{ inputs.githubbranch }}"
-          echo "${{ inputs.githubtoken }}"
       
       - uses: actions/checkout@v3
         with:
