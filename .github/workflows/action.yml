@@ -18,10 +18,6 @@ on:
         default: 'Test test'
         type: string
         
-      githubtoken:
-        required: true
-        type: string
-        
       githubbranch:
         required: true
         type: string
@@ -51,6 +47,7 @@ jobs:
         id: extract_action
   
       - name: Check spelling
+        if: ${{ inputs.action == "test" }}
         run: |
           echo "run test"
           echo "${{ inputs.saysomthing }}"
