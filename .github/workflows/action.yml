@@ -40,7 +40,7 @@ jobs:
       
       - uses: actions/checkout@v3
         with:
-           token: "${{ inputs.githubtoken }}"
+           token: ${{ secrets.GITHUB_TOKEN }}
            ref: "${{ inputs.githubbranch }}"
            fetch-depth: 0
        
