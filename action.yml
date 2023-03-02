@@ -19,6 +19,7 @@ runs:
       image: ${{inputs.image}}
       run: |
         echo "${secrets.GITHUB_TOKEN}""
+      shell: bash
 
     - name: Check spelling
       runs-on: ubuntu-latest
@@ -26,3 +27,4 @@ runs:
       run: |
         echo "run test"
         echo "${inputs.saysomthing}"
+      shell: bash
