@@ -3,7 +3,7 @@ name: check-action-info
 on:
   workflow_call:
     inputs:
-      container:
+      image_to_use:
         required: false
         default: 'ubuntu:latest'
         type: string
@@ -26,7 +26,7 @@ jobs:
   Routine_Check_for_Commit:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/ruiheesi/single-cell-rna-r4:latest
+      image: ${{ inputs.image_to_use }}
       credentials:
          username: ${{ github.actor }}
          password: ${{ secrets.GITHUB_TOKEN }}
