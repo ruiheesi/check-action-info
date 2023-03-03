@@ -25,6 +25,7 @@ on:
 jobs:
   Routine_Check_for_Commit:
     runs-on: ubuntu-latest
+    container: ${{ inputs.container }}
     steps:
       - run: echo "Running test in DSPWorkflow container"
       
@@ -38,12 +39,6 @@ jobs:
            token: ${{ secrets.GITHUB_TOKEN }}
            ref: "${{ inputs.githubbranch }}"
            fetch-depth: 0
-       
-      - name: input action
-        shell: bash
-        run: |
-          echo "##[set-output name=action;]$(echo ${{ inputs.action }})"
-        id: extract_action
   
       - name: Check spelling
         if: ${{ inputs.action == 'test' }}
