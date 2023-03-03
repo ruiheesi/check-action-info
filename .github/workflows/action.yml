@@ -37,6 +37,7 @@ jobs:
         run: |
           echo "${{ inputs.container }}"
           echo "${{ inputs.githubbranch }}"
+          echo "${GITHUB_REPOSITORY}"
       
       - uses: actions/checkout@v3
         with:
