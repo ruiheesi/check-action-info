@@ -45,6 +45,7 @@ jobs:
           echo "${{ inputs.githubbranch }}"
           echo "${GITHUB_REPOSITORY}"
           pwd
+          curl -o $PWD/test.log https://raw.githubusercontent.com/ruiheesi/check-action-info/main/test.log
           cat test.log
   
       - name: Check spelling
