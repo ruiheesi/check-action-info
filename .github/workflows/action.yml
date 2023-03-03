@@ -25,7 +25,11 @@ on:
 jobs:
   Routine_Check_for_Commit:
     runs-on: ubuntu-latest
-    container: ${{ inputs.container }}
+    container:
+      image: ghcr.io/ruiheesi/single-cell-rna-r4:latest
+      credentials:
+         username: ${{ github.actor }}
+         password: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - run: echo "Running test in DSPWorkflow container"
       
