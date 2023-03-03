@@ -45,7 +45,6 @@ jobs:
           echo "${{ inputs.githubbranch }}"
           echo "${GITHUB_REPOSITORY}"
           pwd
-          curl -o $PWD/test.log https://raw.githubusercontent.com/foo/git-workflows/master/scripts/tag_verify.sh
           cat test.log
   
       - name: Check spelling
